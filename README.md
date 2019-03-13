@@ -1,6 +1,11 @@
 ## **VCF to FHIR Converter**
 
 
+### Disclaimer
+
+Software is available for use under an [Apache 2.0 license](https://opensource.org/licenses/Apache-2.0), and is intended solely for experimental use, to help further Genomics-EHR integration exploration. Software is expressly not ready to be used with identifiable patient data or in delivering care to patients. Code issues should be tracked here. Comments and questions can also be directed to [info@elimu.io](mailto:info@elimu.io).
+
+
 ### Introduction
 
 VCF-2-FHIR conversion is a component of a broader project, a [FHIR](https://www.hl7.org/fhir/)-enabled genomic data server (or Genomic Archiving and Communication System, GACS), tentatively slated to be released onto github in late 2019. A high level model for the FHIR-enabled GACS is shown in the following figure.
@@ -17,7 +22,7 @@ Implementation of said API is via an ‘On-demand FHIR Translator’. In this mo
 
 ![](https://lh6.googleusercontent.com/2oyJZ681JihIv0mm90OafEGQLUkx72h5KTuRof7dWfM5eEnzefs5Y3JxA2chnufVrGdWMqQE7fxRS4OMTsRevU7DbAvErSH38Qpz7o4M_UG3c9-7PyWlL7HlGK3kgI0LkU9InLpI)
 
-We provide the VCF-to-FHIR converter here. Software is available for use under an [Apache 2.0 license](https://opensource.org/licenses/Apache-2.0), and is intended solely for experimental use, to help further Genomics-EHR integration exploration. Software is expressly not ready to be used with identifiable patient data or in delivering care to patients. Code issues should be tracked here. Comments and questions can also be directed to [info@elimu.io](mailto:info@elimu.io).
+We provide the VCF-to-FHIR converter here. 
 
 ### VCF-to-FHIR Conversion
 A detailed description of the conversion algorithm is below. We currently translate simple variants, along with zygosity and phase relationships. We are working on enhancing the conversion to accommodate structural variants, but do not yet have a slated date for when that code will be available. We also anticipate a code update later this year once January 2019 ballot comments against the FHIR Genomics guide have been resolved and applied.
