@@ -106,7 +106,7 @@ Go row by row through the VCF, converting each VCF row into an instance of descr
 - Download and install composer from: https://laravel.com/docs/5.4/#server-requirements
 -  Download and install java from: https://www.java.com
 - Download zip file of the project from the download button of the git repository
-- Extract zip in your local machine
+- Extract zip in your local machine (VCF and FHIR sample files are in 'public' folder)
 - Open the extracted folder (you should see all the files ex: app, bootstrap, config, etc.)
 - Open Command Prompt/Terminal in that folder
 - Run the following command: 
