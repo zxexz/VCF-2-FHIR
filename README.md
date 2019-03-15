@@ -136,5 +136,5 @@ For this step, we suggest you to use the vcf files we provided. You can find the
 - Click on "Click To Convert" button
 - You will see "fhir.xml has been successfully created" message if your file has been converted successfully
 - Click on "VIEW XML FILE" to see fhir.xml file
-- Click on "VIEW JSON FILE" to see json.xml file (edited) 
+- Click on "VIEW JSON FILE" to see json.xml file
 
