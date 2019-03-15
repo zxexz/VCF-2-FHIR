@@ -103,26 +103,30 @@ Go row by row through the VCF, converting each VCF row into an instance of descr
 
 **Step 1**- Setting up your system
 - Download and install XAMPP from the following link: https://www.apachefriends.org/download.html
-- Download and install composer from: https://laravel.com/docs/5.4/#server-requirements
--  Download and install java from: https://www.java.com
+- Download and install composer from: https://laravel.com/docs/5.4/
+- Download and install java from: https://www.java.com
 - Download zip file of the project from the download button of the git repository
-- Extract zip in your local machine (VCF and FHIR sample files are in 'public' folder)
+- Extract zip in your local machine
 - Open the extracted folder (you should see all the files ex: app, bootstrap, config, etc.)
 - Open Command Prompt/Terminal in that folder
-- Run the following command: 
-    - composer install 
+- Run the following command:
+   - ***composer install***
 
 This will install the required components for the converter to run.
 
 Now you are all set to convert .vcf files into fhir.json and fhir.xml format.
-<br/>  
+<br/>
 **Step 2**- Converting .vcf files
+
+
+For this step, we suggest you to use the vcf files we provided. You can find them in the 'Sample files' folder of the downloaded zip file. You are free to use your own vcf file, but make sure you name the file properly in the following format:[patientId].[b36|b37|b38].[HGNC gene symbol].`<anything>`.vcf (e.g. ‘NA120003.b37.CYP2D6.vcf’).
+<br/>
 - For Linux/Mac: Open Terminal, For Windows open Command Prompt
 - Navigate to the 'vcf-2-fhir' folder or open Terminal/Command Prompt in the 'vcf-2-fhir' folder
-- Run the following command 
-    - for Windows: php artisan serve
-    - for Linux: sudo php artisan serve
-- Open a web browser and visit "http://localhost:8000", you should see a VCF-TO-FHIR landing page
+- Run the following command
+   - **for Windows: *php artisan serve***
+   - **for Linux: *sudo php artisan serve***
+- Open a web browser and visit "*http://localhost:8000*", you should see a VCF-TO-FHIR landing page
 - Click on "Choose file" button
 - Navigate to your desired '.vcf' file in the newly opened file explorer window
 - Select the file and click 'open'
@@ -130,11 +134,5 @@ Now you are all set to convert .vcf files into fhir.json and fhir.xml format.
 - Click on "Click To Convert" button
 - You will see "fhir.xml has been successfully created" message if your file has been converted successfully
 - Click on "VIEW XML FILE" to see fhir.xml file
-- If you wish to see fhir.json format:
-	-  Open a new Terminal/Command Prompt window
-	-  Navigate to the folder "vcf-to-fhir/public" using Terminal/Command Prompt or you can navigate to the folder and then open Terminal/Command Prompt in that folder. Here you should see "xmltojson.jar" file
-	- Run the following command "java -jar xmltojson.jar `<local file path where fhir.xml is stored> <filepath where you want to store fhir.json file>`"
-	- ex: "java -jar xmltojson.jar Downloads\vcf-to-fhir\public\fhir.xml \Documents\converted"
-
-
+- Click on "VIEW JSON FILE" to see json.xml file (edited) 
 
