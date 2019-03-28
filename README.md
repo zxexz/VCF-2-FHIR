@@ -121,7 +121,7 @@ Now you are all set to convert .vcf files into fhir.json and fhir.xml format.
 **Step 2**- Converting .vcf files
 
 
-For this step, we suggest you to use the vcf files we provided. You can find them in the 'Sample files' folder of the downloaded zip file. You are free to use your own vcf file, but make sure you name the file properly in the following format:[patientId].[b36|b37|b38].[HGNC gene symbol].`<anything>`.vcf (e.g. ‘NA120003.b37.CYP2D6.vcf’).
+For this step, we suggest you to use the vcf files we provided. You can find them in the 'public' folder of the downloaded zip file. You are free to use your own vcf file, but make sure you name the file properly in the following format:[patientId].[b36|b37|b38].[HGNC gene symbol].`<anything>`.vcf (e.g. ‘NA120003.b37.CYP2D6.vcf’).
 <br/>
 - For Linux/Mac: Open Terminal, For Windows open Command Prompt
 - Navigate to the 'vcf-2-fhir' folder or open Terminal/Command Prompt in the 'vcf-2-fhir' folder
