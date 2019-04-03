@@ -29,7 +29,9 @@ A detailed description of the conversion algorithm is below. We currently transl
 
 We tested the algorithm against 17 anonymized VCF files obtained from the [1000 Genomes project](https://www.nature.com/articles/nature15393). From each file, we simulated real-time extraction of gene-specific variants using bcftools, creating 3 gene-specific (TPMT, CYP2C19, CYP2D6) VCF files for each of 17 patients, for a total of 51 VCF files. Each of these files was then translated, via the VCF-to-FHIR converter, into a corresponding FHIR Genomics report. Source VCF files, along with corresponding FHIR Genomics reports (in XML and JSON) can be found in the 'public' folder on this site. 
 
-#### Extract parameters from filename
+#### VCF Requirements
+
+A valid VCF file (per https://samtools.github.io/hts-specs/VCFv4.3.pdf) is required. In addition, we currently require the presence of FORMAT.GT and FORMAT.PS fields. FORMAT.PS can be null. 
 
 In the full incarnation of the on-demand translator, the VCF-to-FHIR converter will obtain patientID and build from the server, and gene from the query. For the stand-alone VCF-to-FHIR converter, patient ID, build, and gene need to be supplied in the file name. Patient ID can be any string without whitespace. Build must be one of ‘b36’ (aka NCBI Build 36, hg18), ‘b37’ (aka GRCh37, hg19), or ‘b38’ (aka GRCh38, hg38). Gene must be a valid [HGNC gene symbol](https://www.genenames.org/). Filename must be formatted as: [patientId].[b36|b37|b38].[HGNC gene symbol].(anything).vcf (e.g. ‘NA120003.b37.CYP2D6.vcf’).
 
