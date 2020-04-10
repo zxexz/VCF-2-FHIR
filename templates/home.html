@@ -1,0 +1,196 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>VCF to FHIR</title>
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <!-- Styles -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <style>
+        /* input, label {
+        display: block;
+        }
+
+        input[type=file]::-webkit-file-upload-button {
+         
+        background:  gray;
+        } */
+            p {
+                font-size: 18px;
+            }
+            .error-message {
+                color:red;
+            }
+            .disable-button {
+                pointer-events: none;
+                cursor: default;
+                text-decoration: none;
+                color: gray !important;
+            }
+            .title {
+                font-size: 84px;
+                font-family: Raleway;
+                font-weight: bold;
+                color: black;
+                font-size: 48px;
+            }
+            .title-description {
+                font-family: Helvetica;
+                font-size: 14px;
+                color: #463f3f;
+                text-align: left;
+                padding: 5% 6% 0% 6%;
+            }
+            .step-style {
+                font-size: 25px;
+                color: #629a44;
+            }
+            .mb-2 {
+                margin-bottom: 2%;
+            }
+            .container {
+                padding: 1% 10% 0% 10%;
+            }
+            .elimu-desc {
+                text-align: justify;
+            }
+            .elimu-disclaimer {
+                color: red;
+                text-decoration: underline;
+            }
+            .read-me {
+                font-weight: bold;
+                color:#006ce5;
+                text-decoration:underline
+            }
+            .button {
+                align-items: flex-start;
+                text-align: center;
+                cursor: default;
+                color: buttontext;
+                background-color: buttonface;
+                box-sizing: border-box;
+                padding: 2px 6px 3px;
+                border-width: 2px;
+                border-style: outset;
+                border-color: buttonface;
+                border-image: initial;
+            }
+            .button:focus,
+            .button:hover {
+            /* background-color: FireBrick; */
+            color: buttontext;
+            text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height container">
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-4">
+                        <a href="http://www.eliumu.io" target="_blank" rel="noopener noreferrer"></a>
+                        <img height="70px" src="https://storage.moqups.com/repo/xz66eX42Js/YCGkakLXMu.png" alt="">
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-12 text-center">
+                        <div class="title m-b-md">
+                            VCF TO FHIR </br>
+                            TRANSLATOR
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="elimu-desc">
+                            Welcome to the Elimu Informatics VCF to FHIR translator! As more and more consumers participate in gene sequencing ordered by their physicians or through Direct-to-Consumer testing centers, that data will be stored in a Variant Call Format (VCF). Translating that data to a FHIR format, which is gaining adoption across EHRs, will help make a person’s full genomic profile accessible for precision health care decision support. You can use this page to test our translator. If you like it, you can download the open-source version of this same translator <a href="https://codeload.github.com/openelimu/VCF-2-FHIR/zip/master">here</a>. Please keep in mind that this is for testing purposes only and is not to be used with actual PHI or in a production environment at this time (see our <a target="_blank" href="https://github.com/openelimu/VCF-2-FHIR/blob/master/README.md" class="elimu-disclaimer"> Disclaimer</a>).
+                        </p>            
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                        <form action="translate" method="post" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-md-12 step-style mb-2">
+                                    Step 1 : Select file to upload
+                                </div>
+                                <div class="col-md-12 mb-2">
+                                    <p>
+                                        Don't have any VCF files lying around? Totally understandable, you can download some <a href="vcf.zip" download>here</a>.
+                                    </p>
+                                    <p>
+                                    If you are supplying your own VCF file, please make sure there is a column header row that matches the column headers in our  <a href="vcf.zip" download>sample files</a>.
+                                    </p>
+                                </div>
+                                <div class="col-md-12 mb-2">
+                                    <input type="hidden" name="_token" value="bKYePIzq5cQPQuYJWhQI7mb1DNQGTgyKmON8RNaF">
+                                    <input type="file" name="fileToUpload" id="fileToUpload">
+                                </div>
+                                <div class="col-md-12 mb-2">
+                                    <a disabled="disabled" onClick="clearFileInput()">Remove</a>
+                                </div>
+                                                                                                
+                                <div class="col-md-12 step-style mb-2">
+                                    Step 2: Convert uploaded file
+                                </div>
+                                
+                                                                 <div class="col-md-12 mb-2">
+                                    <input  id="file-select-2" type="submit" value="Click To Convert" name="submit">
+                                </div>
+                                                                
+                                
+                                                                 
+                                <div class="col-md-12">
+                                    <p>
+                                    Wanna try it again? Just <a href="/"  rel="noopener noreferrer">refresh</a> the page!
+                                    </p>
+                                </div>
+                                
+                                <div class="col-md-12">
+                                    <p>
+                                        Got questions? You can contact us at info@elimu.io or check out our <a target="_blank" href="https://github.com/openelimu/VCF-2-FHIR/blob/master/README.md" class="read-me">Readme</span>
+                                    </p>
+                                </div>
+                        </form>
+                  </div>
+                </div>
+                    <!-- <div class="links">
+                        <a class="view-xml" target="_blank" href="https://github.com/openelimu/VCF-2-FHIR/blob/master/README.md">Readme</a>
+                    </div> -->
+            </div>
+        </div>
+    </body>
+</html>
+<script>
+// $("#fileToUpload").on('change',function(){
+//  debugger
+//   if($("#fileToUpload")[0].value) {
+//         $("#fileToUpload").addClass("intro");
+//         //$("#fileToUpload").attr("disabled","true");
+//    }else {
+//       alert('file not selected');
+//       $("#fileToUpload").addClass("intro");
+//   }
+// });
+$(document).ready(function(){
+        $('input[type="file"]').change(function(e){
+             
+             
+            $('#file-select-1').removeAttr("disabled"); 
+           // $('#file-select-2').hide();
+            e.target.className ="disable-button";
+            var fileName = e.target.files[0].name;
+        });
+    });
+function clearFileInput() {
+    $("#fileToUpload").removeClass("disable-button");   
+    $("#fileToUpload").val('');
+}
+</script>
