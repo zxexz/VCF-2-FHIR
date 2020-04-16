@@ -36,7 +36,7 @@ The conversion creates a FHIR Genomics DiagnosticReport that contains a single '
 The following VCF rows are excluded from conversion: 
 - VCF #CHROM is not the one on which the Gene in the filename resides.
 - VCF REF is not a simple character string
-- VCF ALT is not a simple character string, comma-separated character string, or '.'.. (Rows where ALT is a token (e.g. '<DEL>') are excluded).
+- VCF ALT is not a simple character string, comma-separated character string, or '.'.. (Rows where ALT is a token (e.g. 'DEL') are excluded).
 - VCF FILTER does not equal 'PASS' or '.'.
 - VCF INFO.SVTYPE is present. (Structural variants are excluded).
 - VCF FORMAT.GT is null ('./.', '.|.', '.', etc).
