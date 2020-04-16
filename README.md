@@ -6,6 +6,9 @@
 VCF-2-FHIR conversion is a component of a broader project, a [FHIR](https://www.hl7.org/fhir/)-enabled genomic data server (or Genomic Archiving and Communication System, GACS), tentatively slated to be released onto github in late 2019. A high level model for the FHIR-enabled GACS is shown in the following figure.
 
   
+  ![image](https://user-images.githubusercontent.com/46577791/79508219-f4d81500-7fed-11ea-9430-d0eea0949df8.png)
+  
+  
 
 ![](https://lh5.googleusercontent.com/lfwQpgBaqKfuAotrYwKdCd7YNcMo9S2HRAgnNSnHmXfRnv5jFDhwHZi3vGFYSfQEnA4ttVJXFOHlx_9cE2cwchOSguVugASdiTgbKpkz_dE--R-Wl4gKIZ8_ZpLB4leUpMJRPd0x)
 In this design, GACS stores raw genomics files ([FASTQ](https://github.com/samtools/hts-specs/), [SAM](https://github.com/samtools/hts-specs/), [VCF](https://github.com/samtools/hts-specs/), [BED](https://genome.ucsc.edu/FAQ/FAQformat.html#format1), etc) generated from next-generation sequencing. Our draft GACS FHIR API has a gene as the query parameter, and returns variants, variant zygosity (e.g.heterozygous, homozygous), and phase relationships (e.g. whether two heterozygous variants are on the same or homologous chromosomes) found within that gene; or an indication that the gene hasn’t been studied. Results are formatted as a FHIR Diagnostic Report conforming to the January 2019 balloted [FHIR Genomics guide](http://www.hl7.org/fhir/uv/genomics-reporting/2019Jan/index.html). Ultimately, we plan to submit the GACS FHIR API specification to HL7 for community review and balloting.
