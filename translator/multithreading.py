@@ -7,14 +7,12 @@ from multiprocessing import Pool, cpu_count, Manager
 from .filecleaner import cleanVCF, getNextElement
 from .xmlGenerator import getFhirXML, getEmptyFhirXML
 from .jsonGenerator import getFhirJSON,getEmptyFhirJSON
-
+from .geneRefSeq import getRefSeqByGene,getChrombyGene
 import logging
 logging.basicConfig(level=logging.DEBUG,format='%(asctime)s - %(levelname)s -%(message)s', datefmt='%d-%b-%y %H:%M')
-
 pd.options.mode.chained_assignment = None
 
-
-def translate(VCF_FILE,patientID,refSeq,noCall=False,gender="M"):
+def translate(VCF_FILE,patientID,build,geneType,noCall=False,gender="M"):
     logging.info("[Cleaning VCF records]")
     pool = Pool(processes=4)    
     headers = ['#CHROM', 'POS', 'ID', 'REF', 'ALT', 'QUAL', 'FILTER', 'INFO', 'FORMAT', 'sample1']
@@ -24,17 +22,15 @@ def translate(VCF_FILE,patientID,refSeq,noCall=False,gender="M"):
     chunk_list = []
     clean = pool.map(cleanVCF,df_chunk)
     cleanVcf = pd.concat(clean)
-
+    chrom = getChrombyGene(geneType)
+    refSeq = getRefSeqByGene(build,geneType)
+    cleanVcf = cleanVcf[cleanVcf['#CHROM'] == int(chrom)]
 
     try:
-        logging.info(cleanVcf)
-
         fhirResponse = getFhirJSON(cleanVcf,nextelem,patientID,refSeq,noCall=False,gender="M")
-
     except:
         logging.info("* No valid VCF records found")
         fhirResponse = getEmptyFhirJSON(patientID,refSeq,noCall)
-
     finally:
         pool.terminate()
         pool.join()

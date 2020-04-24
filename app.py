@@ -1,5 +1,7 @@
 from flask import Flask, render_template, send_file, request
 from translator.multithreading import translate
+import translator.config as config
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -8,13 +10,23 @@ def home():
 
 @app.route("/translate", methods=['POST'])
 def translatevcf():
-    filename=request.files['fileToUpload']
-    VCF_FILE = '/home/admin1/Documents/projects/py-vcf-2-fhir/HG00628.b37.CYP2C19.vcf'
+    VCF_FILE=request.files['fileToUpload']
+    patientID = VCF_FILE.filename.split('.')[0]
+    build = VCF_FILE.filename.split('.')[1]
+    geneType = VCF_FILE.filename.split('.')[2]
+    if VCF_FILE.filename.split('.')[3] in ["m","M","Male","male"]:
+        gender = 'M'
+    else:
+        gender = 'F'
     try:
-        translate(VCF_FILE,"a","m","c",True)
-        return send_file('/home/admin1/Documents/projects/py-vcf-2-fhir/pyvcf/downloads/json/fhir.json', attachment_filename='fhir')
+        translate(VCF_FILE,patientID,build,geneType.upper(),False,gender)
+        return send_file(config.path+'/downloads/json/fhir.json', as_attachment=True,mimetype='application/json',attachment_filename='fhir.json')
     except:
-        return send_file('/home/admin1/Documents/projects/py-vcf-2-fhir/pyvcf/downloads/resultEmpty.vcf', attachment_filename='resultEmpty.vcf')
+        return send_file(config.path+'/downloads/emptyFHIR.json', as_attachment=True,mimetype='application/json', attachment_filename='emptyFHIR.json')
 
+@app.route("/samples")
+def samples():
+        return send_file(config.path+'/downloads/vcf.zip', as_attachment=True,mimetype='application/zip',attachment_filename='samples.zip')
+    
 if __name__ == "__main__":
     app.run()
