@@ -3,13 +3,14 @@ import datetime
 import pandas as pd
 import random, string
 import pytz 
+import translator.config as config
 
-VCF_FILE = os.path.join('/home/admin1/Documents/projects/py-vcf-2-fhir/pyvcf' + '/downloads/','result.vcf')
-NO_CALL_FILE = os.path.join('/home/admin1/Documents/projects/py-vcf-2-fhir/pyvcf' + '/downloads/','nocall.csv')
-QUERY_RANGE_FILE = os.path.join('/home/admin1/Documents/projects/py-vcf-2-fhir/pyvcf' + '/downloads/','query.bed') 
-XML_TO_JSON_JAR = os.path.join('/home/admin1/Desktop/translator/translator/','xmltojson.jar')
-FHIR_XML_RESULT = os.path.join('/home/admin1/Desktop/translator/downloads/xml/','fhir.xml')
-FHIR_JSON_RESULT = os.path.join('/home/admin1/Documents/projects/py-vcf-2-fhir/pyvcf/downloads/json/')
+VCF_FILE = os.path.join(config.path + '/downloads/','result.vcf')
+NO_CALL_FILE = os.path.join(config.path + '/downloads/','nocall.csv')
+QUERY_RANGE_FILE = os.path.join(config.path + '/downloads/','query.bed') 
+XML_TO_JSON_JAR = os.path.join(config.path,'xmltojson.jar')
+FHIR_XML_RESULT = os.path.join(config.path,'fhir.xml')
+FHIR_JSON_RESULT = os.path.join(config.path+'/downloads/','json/')
 
 class Utilities(object):
 
