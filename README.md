@@ -6,7 +6,7 @@ VCF-formatted files are the lingua franca of next-generation sequencing, whereas
 
 Conceptually, the utility takes a VCF as input and outputs a FHIR Genomics report. We currently convert simple variants (SNVs, Indels), along with zygosity and phase relationships, for autosomes, sex chromosomes, and mitochondrial DNA, as illustrated here: 
 
-![image](https://user-images.githubusercontent.com/46577791/79508219-f4d81500-7fed-11ea-9430-d0eea0949df8.png)
+![image](https://user-images.githubusercontent.com/46577791/80505433-2bd0f380-8929-11ea-9869-c1a971e5e04e.png)
 
 ### License and Limitations
 
