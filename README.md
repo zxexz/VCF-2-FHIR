@@ -61,7 +61,7 @@ Variant observations:
 ```sh
 pip install -r requirements.txt
 ```
-- Configure the working directory in file `translotor/config.py`
+- Configure the working directory in file `translator/config.py`
 - eg
 ```
     For `linux`, path='/home/admin1/projects/GACS/heroku/github/VCF-2-FHIR'
