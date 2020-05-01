@@ -2,7 +2,7 @@
 
 ### Introduction
 
-VCF-formatted files are the lingua franca of next-generation sequencing, whereas [HL7 FHIR](https://www.hl7.org/fhir/) is emerging as a standard language for electronic health record interoperability. A growing number of clinical genomics applications are emerging, based on the [HL7 FHIR Genomics standard](http://hl7.org/fhir/uv/genomics-reporting/index.html). Here, we provide an open source utility for converting variants from VCF format into HL7 FHIR Genomics format. A web-based conversion tool leveraging this utility is [HERE](https://vcf-2-fhir.herokuapp.com/). Sample VCF files and corresponding FHIR Genomics instances are in the downloads folder. 
+VCF-formatted files are the lingua franca of next-generation sequencing, whereas [HL7 FHIR](https://www.hl7.org/fhir/) is emerging as a standard language for electronic health record interoperability. A growing number of clinical genomics applications are emerging, based on the [HL7 FHIR Genomics standard](http://hl7.org/fhir/uv/genomics-reporting/index.html). Here, we provide an open source utility for converting variants from VCF format into HL7 FHIR Genomics format. A web-based conversion tool leveraging this utility is [HERE](https://vcf-2-fhir.herokuapp.com/). Details of the translation logic are on the wiki. Sample VCF files and corresponding FHIR Genomics instances are in the downloads folder. 
 
 Conceptually, the utility takes a VCF as input and outputs a FHIR Genomics report. We currently convert simple variants (SNVs, Indels), along with zygosity and phase relationships, for autosomes, sex chromosomes, and mitochondrial DNA, as illustrated here: 
 
