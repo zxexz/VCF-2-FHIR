@@ -94,6 +94,8 @@ Go row by row through the VCF, converting each VCF row into an instance of descr
 6 18142308 . A G . . . GT:PS 1|0:18142289
 
 
+
+
 ## Steps to run the converter on you local machine
 
 
