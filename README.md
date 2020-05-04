@@ -105,23 +105,37 @@ Go row by row through the VCF, converting each VCF row into an instance of descr
 - Download zip file of the project from the download button of the git repository
 - Extract zip in your local machine
 - Open the extracted folder (you should see all the files/folders ex: `translator`, `app.py`, `requirements.txt`, etc.)
+- Create & Activate Python virtual environment
+  - For Windows system, open cmd & enter following commands:
+    ```sh
+    pip install virtualenv
+    virtualenv env
+    env\Scripts\activate
+    ```
+  - For Ubuntu system, open termianl & enter following commands:
+    ```sh
+    sudo apt-get install python-pip
+    pip install virtualenv
+    virtualenv env
+    source env/bin/activate
+    ```
 - Install the dependencies 
-```sh
-pip install -r requirements.txt
-```
+    ```sh
+    pip install -r requirements.txt
+    ```
 - Configure the working directory in file `translotor/config.py`
 - eg
-```
-    For `linux`, path='/home/admin1/projects/GACS/heroku/github/VCF-2-FHIR'
-    For `Windows` path='C:\\Users\\user\\Desktop\\VCF-2-FHIR'
-```
-```python
-path='<path to extracted folder VCF-2-FHIR>'
-```
+    ```
+        For `linux`, path='/home/admin1/projects/GACS/heroku/github/VCF-2-FHIR'
+        For `Windows` path='C:\\Users\\user\\Desktop\\VCF-2-FHIR'
+    ```
+    ```python
+    path='<path to extracted folder VCF-2-FHIR>'
+    ```
 - Open Command Prompt/Terminal in that folder & Run the following command
- ```sh
-python app.py 
- ```
+    ```sh
+    python app.py 
+    ```
 
 This will install the required components for the converter to run.
 
