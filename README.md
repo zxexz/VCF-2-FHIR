@@ -101,18 +101,18 @@ Go row by row through the VCF, converting each VCF row into an instance of descr
 
 
 **Step 1**- Setting up your system
-- Download and install Python from [here](https://www.python.org/downloads/)
-- Download zip file of the project from the download button of the git repository
-- Extract zip in your local machine
+- Download and install Python from [here.](https://www.python.org/downloads/)
+- Download zip file of the project from the download button of the git repository.
+- Extract zip in your local machine.
 - Open the extracted folder (you should see all the files/folders ex: `translator`, `app.py`, `requirements.txt`, etc.)
-- Create & Activate Python virtual environment
-  - For Windows system, open cmd & enter following commands:
+- Create & Activate Python virtual environment.
+  - For `Windows`, open CMD & enter following commands:
     ```sh
     pip install virtualenv
     virtualenv env
     env\Scripts\activate
     ```
-  - For Ubuntu system, open termianl & enter following commands:
+  - For `Ubuntu`, open termianl & enter following commands:
     ```sh
     sudo apt-get install python-pip
     pip install virtualenv
@@ -120,19 +120,18 @@ Go row by row through the VCF, converting each VCF row into an instance of descr
     source env/bin/activate
     ```
 - Install the dependencies 
+   - Navigate to extracted folder `VCF-2-FHIR` in CMD/Terminal by `cd` command & enter following command:
     ```sh
     pip install -r requirements.txt
     ```
 - Configure the working directory in file `translotor/config.py`
-- eg
-    ```
-        For `linux`, path='/home/admin1/projects/GACS/heroku/github/VCF-2-FHIR'
-        For `Windows` path='C:\\Users\\user\\Desktop\\VCF-2-FHIR'
-    ```
+   
     ```python
     path='<path to extracted folder VCF-2-FHIR>'
     ```
-- Open Command Prompt/Terminal in that folder & Run the following command
+    - Example for `Ubuntu`,   path='/home/admin1/Desktop/VCF-2-FHIR'
+    - Example for `Windows`,  path='C:\\\Users\\\user\\\Desktop\\\VCF-2-FHIR' (`Note:`Add double backslash (`'\\'`) in file path)
+- Open CMD/Terminal in that folder & Run the following command:
     ```sh
     python app.py 
     ```
