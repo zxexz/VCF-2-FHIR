@@ -1,1 +1,1 @@
-path='C:\\Users\\bdolin\\Documents\\GitHub\\VCF-2-FHIR'
+path='/app'
