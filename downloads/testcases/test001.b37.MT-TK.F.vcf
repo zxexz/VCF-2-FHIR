@@ -1,40 +1,4 @@
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	TEST001
-1	15	.	.	G	.	.	.	GT:PS	0/1:.
-1	16	.	A,T	G	.	.	.	GT:PS	0/1:.
-1	17	.	A	G	.	27	.	GT:PS	0/1:.
-1	18	.	A	G	.	.	SVTYPE=INV	GT:PS	0/1:.
-1	19		A	G	.	.	.	GT:PS	0/1:.
-1	20	.		G	.	.	.	GT:PS	0/1:.
-1	21	.	A		.	.	.	GT:PS	0/1:.
-1	22	.	A	G		.	.	GT:PS	0/1:.
-1	23	.	A	G	.		.	GT:PS	0/1:.
-1	24	.	A	G	.	.		GT:PS	0/1:.
-1	25	.	A	G	.	.	.	PS	.
-1	26	.	A	G	.	.	.	GT:PS	./.:.
-1	27	.	A	G	.	.	.	GT:PS	.|.:.
-1	28	.	A	<CGA_CNVWIN>	.	.	.	GT:PS	0/1:.
-1	300	.	A	G	.	.	.	GT:PS	0/1:.
-1	400	.	A	G	.	.	.	GT:PS	1/1:.
-1	500	.	A	G	.	.	.	GT:PS	0/1:500
-1	600	.	A	G	.	.	.	GT:PS	1/0:500
-1	700	.	A	G	.	.	.	GT:PS	0/1:700
-1	800	.	A	G	.	.	.	GT:PS	0/1:700
-1	900	.	A	G	.	.	.	GT	0/1
-1	1000	.	A	G	.	.	.	GT	1/.
-1	1100	.	A	G	.	.	.	GT	0/.
-1	1200	.	A	.	.	.	.	GT	0/0
-1	1300	.	A	G	.	.	.	GT	0/0
-1	1400	.	A	G	.	.	.	GT	0|0
-1	1500	.	A	G	.	.	.	GT	0/0
-1	1600	.	A	G	.	.	.	GT	0|0
-1	1700	.	A	G	.	.	.	GT	1/1
-1	1800	.	A	G	.	.	.	GT	1|1
-1	1900	.	A	G	.	.	.	GT	0/1
-1	2000	.	A	G	.	.	.	GT	0|1
-1	2100	.	A	G	.	.	.	GT	1/0
-1	2200	.	A	G	.	.	.	GT	1|0
-1	2300	.	A	G,T	.	.	.	GT	0/1
-1	2400	.	A	G,T,CG	.	.	.	GT	0/3
-1	2500	.	A	G,T	.	.	.	GT	0/2
-1	2600	.	A	G,T	.	.	.	GT	2/2
-1	2700	.	A	G,T	.	.	.	GT	1/2
+MT	100	.	A	G	.	.	.	GT	0/0
+MT	200	.	A	G	.	.	.	GT	1/1
+MT	300	.	A	G	.	.	.	GT	0/1
