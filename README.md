@@ -41,10 +41,11 @@ The following VCF rows are excluded from conversion:
 - VCF INFO.SVTYPE is present. (Structural variants are excluded).
 - VCF FORMAT.GT is null ('./.', '.|.', '.', etc).
 
-Variant observations:
-- Are reflections of the VCF. No normalization (i.e. conversion into a canonical form) or liftover (i.e. conversion from one build to another) is performed. 
-- Use a 1-based coordinate system, so that the variant position in the FHIR Genomics report is the same as VCF POS. 
-- Male sex is assumed if not provided (e.g. for determining allelic state of chrX variants)
+Variant observations are reflections of the VCF. No normalization (i.e. conversion into a canonical form) or liftover (i.e. conversion from one build to another) is performed. Positions use a 1-based coordinate system, so that the variant position in the FHIR Genomics report is the same as VCF POS. Male sex is assumed if not provided (e.g. for determining allelic state of chrX variants)
+
+Sequence phase relationships are created where two heterozygous variants are in the same phase set (i.e. have the same value for FORMAT.PS) and have a phased genotype. In this case, the utility will create a sequence phase relationship observation with a relationship of 'Cis' or 'Trans'. For example, these two VCF rows are reflected in FHIR Genomics as having a 'Trans' relationship:
+- 6 18142205 . C T . . . GT:PS 1|0:18142205
+- 6 18142422 . A C . . . GT:PS 0|1:18142205
 
 ## Steps to run the converter on you local machine
 
