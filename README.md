@@ -2,11 +2,11 @@
 
 ### Introduction
 
-VCF-formatted files are the lingua franca of next-generation sequencing, whereas [HL7 FHIR](https://www.hl7.org/fhir/) is emerging as a standard language for electronic health record interoperability. A growing number of clinical genomics applications are emerging, based on the [HL7 FHIR Genomics standard](http://hl7.org/fhir/uv/genomics-reporting/index.html). Here, we provide an open source utility for converting variants from VCF format into HL7 FHIR Genomics format. A web-based conversion tool leveraging this utility is [HERE](https://vcf-2-fhir.herokuapp.com/). Sample VCF files and corresponding FHIR Genomics instances are in the downloads folder. 
+VCF-formatted files are the lingua franca of next-generation sequencing, whereas [HL7 FHIR](https://www.hl7.org/fhir/) is emerging as a standard language for electronic health record interoperability. A growing number of clinical genomics applications are emerging, based on the [HL7 FHIR Genomics standard](http://hl7.org/fhir/uv/genomics-reporting/index.html). Here, we provide an open source utility for converting variants from VCF format into HL7 FHIR Genomics format. A web-based conversion tool leveraging this utility is [HERE](https://vcf-2-fhir.herokuapp.com/). Details of the translation logic are on the wiki. Sample VCF files and corresponding FHIR Genomics instances are in the downloads folder. 
 
 Conceptually, the utility takes a VCF as input and outputs a FHIR Genomics report. We currently convert simple variants (SNVs, Indels), along with zygosity and phase relationships, for autosomes, sex chromosomes, and mitochondrial DNA, as illustrated here: 
 
-![image](https://user-images.githubusercontent.com/46577791/80505433-2bd0f380-8929-11ea-9869-c1a971e5e04e.png)
+![image](https://user-images.githubusercontent.com/46577791/80811245-5665bb00-8b7a-11ea-9b4e-4dc5c10cdce9.png)
 
 ### License and Limitations
 
@@ -46,34 +46,43 @@ Variant observations:
 - Use a 1-based coordinate system, so that the variant position in the FHIR Genomics report is the same as VCF POS. 
 - Male sex is assumed if not provided (e.g. for determining allelic state of chrX variants)
 
-
-
 ## Steps to run the converter on you local machine
 
-
-
 **Step 1**- Setting up your system
-- Download and install Python from [here](https://www.python.org/downloads/)
-- Download zip file of the project from the download button of the git repository
-- Extract zip in your local machine
+- Download and install Python from [here.](https://www.python.org/downloads/)
+- Download zip file of the project from the download button of the git repository.
+- Extract zip in your local machine.
 - Open the extracted folder (you should see all the files/folders ex: `translator`, `app.py`, `requirements.txt`, etc.)
+- Create & Activate Python virtual environment.
+  - For `Windows`, open CMD & enter following commands:
+    ```sh
+    pip install virtualenv
+    virtualenv env
+    env\Scripts\activate
+    ```
+  - For `Ubuntu`, open termianl & enter following commands:
+    ```sh
+    sudo apt-get install python-pip
+    pip install virtualenv
+    virtualenv env
+    source env/bin/activate
+    ```
 - Install the dependencies 
-```sh
-pip install -r requirements.txt
-```
-- Configure the working directory in file `translator/config.py`
-- eg
-```
-    For `linux`, path='/home/admin1/projects/GACS/heroku/github/VCF-2-FHIR'
-    For `Windows` path='C:\\Users\\user\\Desktop\\VCF-2-FHIR'
-```
-```python
-path='<path to extracted folder VCF-2-FHIR>'
-```
-- Open Command Prompt/Terminal in that folder & Run the following command
- ```sh
-python app.py 
- ```
+   - Navigate to extracted folder `VCF-2-FHIR` in CMD/Terminal by `cd` command & enter following command:
+    ```sh
+    pip install -r requirements.txt
+    ```
+- Configure the working directory in file `translotor/config.py`
+   
+    ```python
+    path='<path to extracted folder VCF-2-FHIR>'
+    ```
+    - Example for `Ubuntu`,   path='/home/admin1/Desktop/VCF-2-FHIR'
+    - Example for `Windows`,  path='C:\\\Users\\\user\\\Desktop\\\VCF-2-FHIR' (`Note:`Add double backslash (`'\\'`) in file path)
+- Open CMD/Terminal in that folder & Run the following command:
+    ```sh
+    python app.py 
+    ```
 
 This will install the required components for the converter to run.
 
