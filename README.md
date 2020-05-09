@@ -27,7 +27,7 @@ Software is available for use under an [Apache 2.0 license](https://opensource.o
     - NA120003.b37.CYP2D6.vcf
     - Patient0123.b38.TPMT.M.File012345.vcf
     - Patient0123.b38.TPMT.File012345.vcf
-- Submitted VCF files should contain just that slice intended to be converted. While the VCF file may contain variants from multiple chromosomes, or from regions that extend beyond the stated Gene's boundaries, only variants on the same chromosome as the Gene are converted. 
+- Submitted VCF files should contain just that slice intended to be converted. While the VCF file may contain variants from multiple chromosomes, or from regions that extend beyond the stated Gene's boundaries, only variants on the same chromosome as the Gene will be converted. 
 
 ### Conversion logic
 
