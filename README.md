@@ -15,7 +15,7 @@ Software is available for use under an [Apache 2.0 license](https://opensource.o
 ### VCF Requirements
 
 - File must conform to VCF Version 4.1 or later.
-- Genotype (FORMAT.GT) must be present
+- Genotype (FORMAT.GT) must be present.
 - Multi-sample VCFs are allowed, but only the first sample will be converted.
 - Filename must be formatted to include certain ordered, dot-delimited parameters.
   - PatientID (required, first): any string without whitespace
