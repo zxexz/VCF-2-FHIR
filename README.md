@@ -33,18 +33,13 @@ Software is available for use under an [Apache 2.0 license](https://opensource.o
 
 The conversion creates a FHIR Genomics DiagnosticReport that contains a single 'region studied' observation, zero to many 'variant' observations, and zero to many 'sequence phase relationship' observations. The 'region studied' observation includes the NCBI chromosome-level ('NC_') refSeq for the chromosome whose variants were converted. There is one 'variant' observation for each converted VCF row. There is one 'sequence phase relationship' for each pair-wise phase relationship asserted in the VCF file.
 
-The following VCF rows are excluded from conversion: 
-- VCF #CHROM is not the one on which the Gene in the filename resides.
-- VCF REF is not a simple character string
-- VCF ALT is not a simple character string, comma-separated character string, or '.'.. (Rows where ALT is a token (e.g. 'DEL') are excluded).
-- VCF FILTER does not equal 'PASS' or '.'.
-- VCF INFO.SVTYPE is present. (Structural variants are excluded).
-- VCF FORMAT.GT is null ('./.', '.|.', '.', etc).
+Input is a conformant VCF v4.1 or later file. Genotype (FORMAT.GT) must be present. Multi-sample VCFs are allowed, but only the first sample is converted. Submitted VCF files should contain just that slice intended to be converted. While the VCF file may contain variants from multiple chromosomes, only variants from the single specified chromosome are converted. The utility excludes VCF rows representing structural variants (where INFO.SVTYPE is present). 
 
-Variant observations:
-- Are reflections of the VCF. No normalization (i.e. conversion into a canonical form) or liftover (i.e. conversion from one build to another) is performed. 
-- Use a 1-based coordinate system, so that the variant position in the FHIR Genomics report is the same as VCF POS. 
-- Male sex is assumed if not provided (e.g. for determining allelic state of chrX variants)
+Variant observations are reflections of the VCF. No normalization (i.e. conversion into a canonical form) or liftover (i.e. conversion from one build to another) is performed. Positions use a 1-based coordinate system, so that the variant position in the FHIR Genomics report is the same as VCF POS. Male sex is assumed if not provided (e.g. for determining allelic state of chrX variants).
+
+Sequence phase relationships are created where two heterozygous variants are in the same phase set (i.e. have the same value for FORMAT.PS) and have a phased genotype. In this case, the utility will create a sequence phase relationship observation with a relationship of 'Cis' or 'Trans'. For example, these two VCF rows are reflected in FHIR Genomics as having a 'Trans' relationship:
+- 6 18142205 . C T . . . GT:PS 1|0:18142205
+- 6 18142422 . A C . . . GT:PS 0|1:18142205
 
 ## Steps to run the converter on you local machine
 
